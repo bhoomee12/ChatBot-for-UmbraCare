@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeButton = document.querySelector(".close");
     const voiceSearchButton = document.querySelector(".voice-search");
     
-    // ✅ Store Last Conversation Topic
+    //Store Last Conversation Topic
     let lastTopic = "";
 
-    // ✅ Initialize Speech Recognition (Once)
+    // Initialize Speech Recognition (Once)
     let recognition;
     if ("webkitSpeechRecognition" in window) {
         recognition = new webkitSpeechRecognition();
@@ -20,12 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
         console.warn("Speech recognition is not supported in this browser.");
     }
 
-    // ✅ Function to Check for Doctor Queries
+    // Function to Check for Doctor Queries
     function isDoctorQuery(userMessage) {
         return /doctor|specialist|hospital|clinic|treatment/i.test(userMessage);
     }
 
-    // ✅ Function to Search for Doctors Online
+    // Function to Search for Doctors Online
     async function searchDoctorsOnline(userMessage) {
         const query = encodeURIComponent(userMessage);
         const searchUrl = `https://www.google.com/search?q=${query}`;
@@ -37,13 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
     }
 
-    // ✅ Function to Call Gemini API (Only if it's NOT a doctor query)
+    // Function to Call Gemini API (Only if it's NOT a doctor query)
     async function callGeminiAPI(userMessage) {
         if (isDoctorQuery(userMessage)) {
             return searchDoctorsOnline(userMessage);
         }
 
-        const apiKey = CONFIG.GEMINI_API_KEY; // Replace with actual API key
+        const apiKey = CONFIG.GEMINI_API_KEY; 
         const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
         if (userMessage.toLowerCase().includes("more info") && lastTopic) {
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ✅ Function to Format AI Response (Max 10 Bullet Points, Relevant & Crisp)
+    // Function to Format AI Response 
     function formatResponse(responseText) {
         const lines = responseText.split("\n").filter(line => line.trim());
         let formatted = "<ul>";
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return formatted + "</ul>";
     }
 
-    // ✅ Typing Effect (Ensures Completion of Full Response)
+    // Typing Effect (Ensures Completion of Full Response)
     async function typeResponse(element, formattedHTML) {
         element.innerHTML = "";
 
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // ✅ Send User Message
+    // Send User Message
     async function sendMessage() {
         const userMessage = inputField.value.trim();
         if (!userMessage) return;
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
         chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    // ✅ Voice Search Functionality
+    // Voice Search Functionality
     function startVoiceRecognition() {
         if (!recognition) {
             alert("Your browser doesn't support speech recognition. Please use Chrome.");
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
         recognition.start();
     }
 
-    // ✅ Event Listeners
+    //  Event Listeners
     sendButton.removeEventListener("click", sendMessage);
     sendButton.addEventListener("click", sendMessage);
 

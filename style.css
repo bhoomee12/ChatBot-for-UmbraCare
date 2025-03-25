@@ -2,7 +2,7 @@
     --grey: #f5f5f5;
     --blue: #3d88f9;
     --orange: #ffcc80;
-    /* -header-bg: #ffe5b4; /* Soft pastel shade for gentle look */
+    /* -header-bg: #ffe5b4; 
     /* --text-color: #4a4a4a; */
 } 
 
@@ -12,26 +12,26 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #fff9f0; /* Soft background for contrast */
+    background-color: #fff9f0; 
 }
 
 .chat-window {
     font-family: "Raleway", sans-serif;
     border-radius: 20px;
-    border: 3px solid var(--orange); /* Outer border matching UmbraCare header */
+    border: 3px solid var(--orange); 
     background-color: var(--grey);
     width: 400px;
     height: 650px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15); 
     overflow: hidden;
     position: relative;
 }
 
 .chat-header-box {
-    background: #ffcc80; /* Light Orange */
+    background: #ffcc80; 
     padding: 25px;
     text-align: center;
     border-radius: 50px;
@@ -52,15 +52,15 @@
 .chat-header-box .subheading {
     font-size: 12px;
     font-weight: 500;
-    color: #4a4a4a; /* Dark grey for better visibility */
+    color: #4a4a4a; 
     margin-top: 5px;
 }
 
 /* Close Button */
 .close {
     position: absolute;
-    top: 5px; /* Moved higher */
-    right: 5px; /* Moved further right */
+    top: 5px; 
+    right: 5px; 
     background: black;
     color: white;
     border: none;
@@ -81,7 +81,7 @@
     flex: 1;
     padding: 10px;
     overflow-y: auto;
-    max-height: 85%; /* Ensures messages don't exceed chat window */
+    max-height: 85%; 
     display: flex;
     flex-direction: column;
 }
@@ -100,7 +100,7 @@
     height: 35px;
     border-radius: 50%;
     margin-left: 10px;
-    background-image: url('user-icon.jpg'); /* Replace with actual user icon */
+    background-image: url('user-icon.jpg'); 
     background-size: cover;
 }
 .user p {
@@ -120,7 +120,7 @@
     height: 35px;
     border-radius: 50%;
     margin-right: 10px;
-    background-image: url('bot-icon.jpg'); /* Replace with actual bot icon */
+    background-image: url('bot-icon.jpg'); 
     background-size: cover;
 }
 .model ul {
@@ -168,7 +168,7 @@
 }
 .chat .model ul li b {
     font-weight: bold;
-    color: #ff884d; /* Blue color for emphasis */
+    color: #ff884d; 
     display: inline;
 }
 
@@ -189,14 +189,14 @@
     width: 88%;
 }
 .voice-search {
-    background: transparent !important; /* Fully removes background */
-    border: none; /* Removes border */
+    background: transparent !important;
+    border: none; 
     padding: 0;
     cursor: pointer;
     display: flex;
-    align-items: center; /* Adds spacing between mic icon and input box */
-    outline: none; /* Removes outline on focus */
-    box-shadow: none; /* Ensures no shadow effect */ /* Adds spacing between mic icon and input box */
+    align-items: center; 
+    outline: none; 
+    box-shadow: none; 
 }
 .voice-search img {
     width: 25px !important;
@@ -253,7 +253,7 @@
 }
 
 .highlight {
-    color: #ff884d; /* Orange color to highlight headers */
+    color: #ff884d; 
     font-weight: bold;
 }
 
@@ -278,11 +278,11 @@
     left: 50%;
     width: 100%;
     height: 100%;
-    background: rgba(255, 157, 0, 0.884); /* Light orange overlay */
+    background: rgba(255, 157, 0, 0.884); 
     border: 2px solid black;
     transform: translate(-50%, -50%);
-    z-index: -1; /* Places it behind the text */
-    border-radius: 8px; /* Optional: Adjust for rounded corners */
+    z-index: -1; 
+    border-radius: 8px; 
     padding: 10px;
     font-size: 24px;
     font-weight: bold;
