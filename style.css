@@ -1,0 +1,293 @@
+:root {
+    --grey: #f5f5f5;
+    --blue: #3d88f9;
+    --orange: #ffcc80;
+    /* -header-bg: #ffe5b4; /* Soft pastel shade for gentle look */
+    /* --text-color: #4a4a4a; */
+} 
+
+/* Outer Chatbox Boundary */
+.chat-outerbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff9f0; /* Soft background for contrast */
+}
+
+.chat-window {
+    font-family: "Raleway", sans-serif;
+    border-radius: 20px;
+    border: 3px solid var(--orange); /* Outer border matching UmbraCare header */
+    background-color: var(--grey);
+    width: 400px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    overflow: hidden;
+    position: relative;
+}
+
+.chat-header-box {
+    background: #ffcc80; /* Light Orange */
+    padding: 25px;
+    text-align: center;
+    border-radius: 50px;
+    position: relative;
+    font-family: "Playfair Display", serif;
+    margin: 15px auto 10px;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header-box .chat-header {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+    color: #3d88f9;
+}
+
+.chat-header-box .subheading {
+    font-size: 12px;
+    font-weight: 500;
+    color: #4a4a4a; /* Dark grey for better visibility */
+    margin-top: 5px;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 5px; /* Moved higher */
+    right: 5px; /* Moved further right */
+    background: black;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 4px 9px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover {
+    background: red;
+}
+
+/* Chat Area */
+.chat {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 85%; /* Ensures messages don't exceed chat window */
+    display: flex;
+    flex-direction: column;
+}
+.chat-message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.user {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.user-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-left: 10px;
+    background-image: url('user-icon.jpg'); /* Replace with actual user icon */
+    background-size: cover;
+}
+.user p {
+    background-color: azure;
+    color: #ff884d;
+    padding: 16px;
+    border-radius: 20px;
+    max-width: 70%;
+    text-align: left;
+}
+.model {
+    display: flex;
+    align-items: center;
+}
+.bot-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-image: url('bot-icon.jpg'); /* Replace with actual bot icon */
+    background-size: cover;
+}
+.model ul {
+    background-color: bisque;
+    padding: 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    max-width: 70%;
+    list-style-type: disc;
+}
+
+
+
+
+.chat .model p {
+    background-color: bisque;
+    padding: 16px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.chat .user {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chat .user p {
+    background-color: azure;
+    color: #ff884d;
+    padding: 16px;
+    border-radius: 20px;
+}
+
+.chat .model ul {
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.chat .model ul li  {
+    list-style-type: disc;
+    margin-bottom: 8px;
+    font-weight: normal;
+    color: black;
+    line-height: 1.5;
+}
+.chat .model ul li b {
+    font-weight: bold;
+    color: #ff884d; /* Blue color for emphasis */
+    display: inline;
+}
+
+
+/* Input Area */
+.input-area {
+    background-color: antiquewhite;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-top: 1px solid lightgray;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    bottom: 0;
+    width: 88%;
+}
+.voice-search {
+    background: transparent !important; /* Fully removes background */
+    border: none; /* Removes border */
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center; /* Adds spacing between mic icon and input box */
+    outline: none; /* Removes outline on focus */
+    box-shadow: none; /* Ensures no shadow effect */ /* Adds spacing between mic icon and input box */
+}
+.voice-search img {
+    width: 25px !important;
+    height: auto;
+}
+
+.input-area input {
+    height: 40px;
+    flex: 1;
+    padding: 0 10px;
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+.input-area button {
+    height: 30px;
+    width: 40px;
+    border: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-area button img {
+    width: 18px;
+}
+
+.loader {
+    display: inline-block;
+    font-size: 18px;
+}
+
+.loader span {
+    animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Suggestions */
+.suggestions {
+    background-color: var(--orange);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.highlight {
+    color: #ff884d; /* Orange color to highlight headers */
+    font-weight: bold;
+}
+
+.suggestions .suggestions-item {
+    background-color: var(--orange);
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.suggestions .suggestions-item:hover {
+    background-color: #ffb74d;
+}
+
+.suggestions .suggestions-item .icon {
+    color: white;
+}
+.chat-window::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 157, 0, 0.884); /* Light orange overlay */
+    border: 2px solid black;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Places it behind the text */
+    border-radius: 8px; /* Optional: Adjust for rounded corners */
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.chat-window {
+    font-size: 18px;
+    font-weight: bold;
+}
