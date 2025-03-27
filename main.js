@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeButton = document.querySelector(".close");
     const voiceSearchButton = document.querySelector(".voice-search");
     
-    //Store Last Conversation Topic
+    // Store Last Conversation Topic
     let lastTopic = "";
 
     // Initialize Speech Recognition (Once)
@@ -82,30 +82,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Function to Format AI Response 
+    // Function to Format AI Response (Removes * and ensures professional formatting)
     function formatResponse(responseText) {
         const lines = responseText.split("\n").filter(line => line.trim());
         let formatted = "<ul>";
         let count = 0;
-
+    
         for (let line of lines) {
             if (count >= 10) break;
-
-            if (line.includes(":")) {
-                const parts = line.split(":");
-                const header = parts[0].trim();
-                const body = parts.slice(1).join(":").trim();
-                formatted += `<li><span class="highlight">${header}</span>: ${body}</li>`;
-            } else {
-                formatted += `<li>${line.trim()}</li>`;
-            }
-
+            line = line.trim();
+            line = line.replace(/^[*\d.]+\s?/, "").replace(/\*+$/, "");
+            line = line.replace(/\*\*(.*?)\*\*:/g, "<b class='highlight'>$1:</b>:");      
+            line = line.replace(/\*\*(.*?)\*\*/g, "<b class='highlight'>$1</b>");
+            formatted += `<li>${line}</li>`;
             count++;
         }
-
+    
         return formatted + "</ul>";
     }
-
+    
     // Typing Effect (Ensures Completion of Full Response)
     async function typeResponse(element, formattedHTML) {
         element.innerHTML = "";
@@ -188,17 +183,14 @@ document.addEventListener("DOMContentLoaded", function () {
         recognition.start();
     }
 
-    //  Event Listeners
+    // Event Listeners
     sendButton.removeEventListener("click", sendMessage);
     sendButton.addEventListener("click", sendMessage);
-
     inputField.addEventListener("keypress", (e) => {
         if (e.key === "Enter") sendMessage();
     });
-
     closeButton.addEventListener("click", () => {
         document.querySelector(".chat-window").style.display = "none";
     });
-
     voiceSearchButton.addEventListener("click", startVoiceRecognition);
 });
